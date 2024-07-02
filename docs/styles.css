@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('images/background.png'); /* Adjust path to your background image */
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* White text for better contrast against the background */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent black background */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.search {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.search input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #000; /* Black text inside input */
+}
+
+.search button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.movie {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for movie details */
+    color: #fff; /* White text for better contrast */
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-container, .right-container {
+    width: 48%;
+}
+
+.user-reviews {
+    margin-top: 20px;
+}
+
+.review {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.review p:first-child {
+    font-weight: bold;
+}
