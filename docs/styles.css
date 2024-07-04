@@ -10,24 +10,55 @@ body {
 
 header {
     background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent black background */
-    padding: 10px 0;
+    padding: 10px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Ensure items are spaced evenly */
+    align-items: center; /* Align items vertically */
 }
 
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    text-align: center;
+    display: flex;
+    align-items: center; /* Align items vertically */
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    margin-left: 20px;
+}
+
+nav ul li:first-child {
+    margin-left: 0; /* Remove margin for the first item */
+}
+
+nav ul li.home {
+    margin-right: auto; /* Push the home link to the left */
+}
+
+nav ul li.right-links1 {
+    margin-left: 870px; /* Add margin to the left for all items except the first one */
+}
+nav ul li.right-links2 {
+    margin-left: 20px; /* Add margin to the left for all items except the first one */
+}
+nav ul li.right-links3 {
+    margin-left: 100px; /* Add margin to the left for all items except the first one */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-size: 18px; /* Adjust font size */
+    font-weight: bold; /* Add bold font weight */
+}
+
+nav ul li.home a {
+    color: #fff; /* Adjust color as needed */
+    font-size: 20px; /* Increase font size for Home (CineMate) */
 }
 
 main {
@@ -95,4 +126,100 @@ main {
 
 .review p:first-child {
     font-weight: bold;
+}
+
+.green-btn {
+    color: white;
+    background-color: rgb(34, 36, 34);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.red-btn {
+    color: white;
+    background-color: red;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+/* styles.css */
+
+/* Submit Review button */
+.reviewForm button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding inside the button */
+    text-align: center; /* Center text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Inline block display */
+    font-size: 16px; /* Font size */
+    margin-top: 10px; /* Top margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.reviewForm button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.login-container,
+.signup-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Add box shadow for depth */
+}
+
+.login-container h2,
+.signup-container h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.login-container form,
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container form label,
+.signup-container form label {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.login-container form input,
+.signup-container form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-container form button,
+.signup-container form button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding inside the button */
+    text-align: center; /* Center text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Inline block display */
+    font-size: 16px; /* Font size */
+    margin-top: 10px; /* Top margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.login-container form button:hover,
+.signup-container form button:hover {
+    background-color: #45a049; /* Darker green on hover */
 }
