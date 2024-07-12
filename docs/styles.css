@@ -1,18 +1,16 @@
 body {
-    font-family:'Courier New', Courier, monospace;
+    font-family: Arial, sans-serif;
+    background-image: url('images/background.png'); /* Adjust path to your background image */
     background-size: cover;
     background-position: center;
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('images/Reel.jpg');
     color: #fff; /* White text for better contrast against the background */
     margin: 0;
     padding: 0;
 }
 
-
-
 header {
     background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent black background */
-    padding: 30px 30px;
+    padding: 10px 20px;
 }
 
 nav {
@@ -60,7 +58,7 @@ nav ul li a {
 
 nav ul li.home a {
     color: #fff; /* Adjust color as needed */
-    font-size: 35px; /* Increase font size for Home (CineMate) */
+    font-size: 20px; /* Increase font size for Home (CineMate) */
 }
 
 main {
@@ -71,42 +69,35 @@ main {
     text-align: center;
     margin-bottom: 30px;
     color: #fff;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size:xx-large;
 }
 
-
 .search {
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent black background */
     padding: 20px;
     border-radius: 10px;
 }
+
 .search input[type="text"] {
-    width: 75%;
+    width: 70%;
     padding: 10px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    margin-right: 5px;
+    margin-right: 10px;
     color: #000; /* Black text inside input */
 }
 
 .search button {
-    padding: 8px 12px;
+    padding: 10px 20px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    background-color: #470a0a;
+    background-color: #007bff;
     color: #fff;
     cursor: pointer;
 }
-.search button img {
-    width: 20px; /* Adjust the width as needed */
-    height: 20px; /* Adjust the height as needed */
-}
-
 
 .movie {
     border: 1px solid #ddd;
@@ -171,7 +162,7 @@ main {
 }
 
 .reviewForm button:hover {
-    background-color: #310404; /* Darker green on hover */
+    background-color: #45a049; /* Darker green on hover */
 }
 
 .login-container,
@@ -187,15 +178,13 @@ main {
 .login-container h2,
 .signup-container h2 {
     text-align: center;
-    color: #ffffff;
+    color: #fff;
     margin-bottom: 20px;
 }
 
 .login-container form,
 .signup-container form {
     display: flex;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: x-large;
     flex-direction: column;
 }
 
@@ -216,16 +205,14 @@ main {
 
 .login-container form button,
 .signup-container form button {
-    background-color: #501515;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight:bold; /* Green background */
+    background-color: #4CAF50; /* Green background */
     color: white; /* White text */
     border: none; /* No border */
     padding: 10px 20px; /* Padding inside the button */
     text-align: center; /* Center text */
     text-decoration: none; /* No underline */
     display: inline-block; /* Inline block display */
-    font-size: 20px; /* Font size */
+    font-size: 16px; /* Font size */
     margin-top: 10px; /* Top margin */
     cursor: pointer; /* Pointer cursor on hover */
     border-radius: 5px; /* Rounded corners */
@@ -234,5 +221,5 @@ main {
 
 .login-container form button:hover,
 .signup-container form button:hover {
-    background-color: #3d0c0c; /* Darker green on hover */
+    background-color: #45a049; /* Darker green on hover */
 }

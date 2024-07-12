@@ -22,9 +22,9 @@ app.use(session({
 // MySQL Connection
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '2314',
-    database: 'imdb_clone'
+    user: 'Harshith20',
+    password: 'Harsha@20',
+    database: 'movie_reviews'
 });
 
 // Connect to MySQL
