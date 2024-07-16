@@ -7,7 +7,6 @@ const session = require('express-session');
 const app = express();
 const PORT = 5000;
 
-// Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'docs')));
@@ -19,7 +18,6 @@ app.use(session({
     cookie: { secure: false } // Set secure: true in production with HTTPS
 }));
 
-// MySQL Connection
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'Harshith20',
@@ -27,7 +25,6 @@ const db = mysql.createConnection({
     database: 'movie_reviews'
 });
 
-// Connect to MySQL
 db.connect((err) => {
     if (err) {
         throw err;
@@ -35,12 +32,10 @@ db.connect((err) => {
     console.log('MySQL Connected...');
 });
 
-// Home page route (index.html with search bar)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'docs', 'index.html'));
 });
 
-// Login endpoint
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     const sql = 'SELECT * FROM Users WHERE username = ? AND password = ?';
@@ -59,108 +54,106 @@ app.post('/login', (req, res) => {
         });
     });
     
-    // Signup endpoint
-    app.post('/signup', (req, res) => {
-        const { username, email, password } = req.body;
-        const sql = 'INSERT INTO Users (username, email, password) VALUES (?, ?, ?)';
-        db.query(sql, [username, email, password], (err, results) => {
-            if (err) {
-                console.error('Signup error:', err);
-                res.status(500).json({ error: 'Signup failed' });
-            } else {
-                res.status(200).json({ message: 'Signup successful' });
-            }
-        });
+app.post('/signup', (req, res) => {
+    const { username, email, password } = req.body;
+    const sql = 'INSERT INTO Users (username, email, password) VALUES (?, ?, ?)';
+    db.query(sql, [username, email, password], (err, results) => {
+        if (err) {
+            console.error('Signup error:', err);
+            res.status(500).json({ error: 'Signup failed' });
+        } else {
+            res.status(200).json({ message: 'Signup successful' });
+        }
     });
+});
     
     // Logout endpoint
-    app.post('/logout', (req, res) => {
-        req.session.destroy((err) => {
-            if (err) {
-                console.error('Logout error:', err);
-                res.status(500).json({ error: 'Logout failed' });
-            } else {
-                res.status(200).json({ message: 'Logout successful' });
-            }
-        });
-    });
-    
-    // Endpoint to check login status
-    app.get('/check-login-status', (req, res) => {
-        if (req.session.user) {
-            res.json({ isLoggedIn: true, username: req.session.user.username });
+app.post('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Logout error:', err);
+            res.status(500).json({ error: 'Logout failed' });
         } else {
-            res.json({ isLoggedIn: false });
+            res.status(200).json({ message: 'Logout successful' });
         }
     });
+});
     
-    // Endpoint to fetch all reviews
-    app.get('/api/reviews', (req, res) => {
-        const { movieId } = req.query;
-        const sql = 'SELECT * FROM Reviews WHERE MovieID = ?';
-        db.query(sql, [movieId], (err, results) => {
-            if (err) {
-                console.error('Error fetching reviews:', err);
-                res.status(500).json({ error: 'Error fetching reviews' });
-            } else {
-                res.json(results);
-            }
-        });
-    });
+app.get('/check-login-status', (req, res) => {
+    if (req.session.user) {
+        res.json({ isLoggedIn: true, username: req.session.user.username });
+    } else {
+        res.json({ isLoggedIn: false });
+    }
+});
     
-    // Endpoint to add a review
-    app.post('/api/reviews', (req, res) => {
-        const { User_Rating, ReviewContent, MovieID } = req.body;
-        const UserID = req.session.user ? req.session.user.userId : null;
-    
-        if (!UserID) {
-            return res.status(401).json({ error: 'You must be logged in to submit a review' });
+app.get('/api/reviews', (req, res) => {
+    const { movieId } = req.query;
+    const sql = 'SELECT * FROM Reviews WHERE MovieID = ?';
+    db.query(sql, [movieId], (err, results) => {
+        if (err) {
+            console.error('Error fetching reviews:', err);
+            res.status(500).json({ error: 'Error fetching reviews' });
+        } else {
+            res.json(results);
         }
-    
-        const sql = 'INSERT INTO Reviews (User_Rating, ReviewContent, UserID, MovieID) VALUES (?, ?, ?, ?)';
-        db.query(sql, [User_Rating, ReviewContent, UserID, MovieID], (err, result) => {
-            if (err) {
-                console.error('Error inserting review:', err);
-                res.status(500).json({ error: 'Error inserting review' });
-            } else {
-                console.log('Review inserted successfully');
-                res.status(201).json({ message: 'Review inserted successfully' });
-            }
-        });
     });
+});
     
-    // Assuming you have a route handler like this
-    app.get('/api/get-username', (req, res) => {
-        const UserName = req.session.user ? req.session.user.username : null;
-        if(UserName){
-            res.json({UserName})
-        }else{
-            res.status(404).json({ error: 'User not found' });
-        }
-        // if (req.session.user) {
-        //     res.json({ username: req.session.user.userId });
-        //     console.log(req.session.user.username);
-        // } else {
-        //     res.status(404).json({ error: 'User not found' });
-        // }
-    });
+app.post('/api/reviews', (req, res) => {
+    const { User_Rating, ReviewContent, MovieID } = req.body;
+    const UserID = req.session.user ? req.session.user.userId : null;
 
-    // Endpoint to search movies by title
-    app.get('/api/search', (req, res) => {
-        const { title } = req.query;
-        const sql = 'SELECT * FROM Movies WHERE Title LIKE ?';
-        db.query(sql, [`%${title}%`], (err, results) => {
-            if (err) {
-                console.error('Error searching movies:', err);
-                res.status(500).json({ error: 'Error searching movies' });
-            } else {
-                res.json(results);
-            }
-        });
+    if (!UserID) {
+        return res.status(401).json({ error: 'You must be logged in to submit a review' });
+    }
+
+    const sql = 'INSERT INTO Reviews (User_Rating, ReviewContent, UserID, MovieID) VALUES (?, ?, ?, ?)';
+    db.query(sql, [User_Rating, ReviewContent, UserID, MovieID], (err, result) => {
+        if (err) {
+            console.error('Error inserting review:', err);
+            res.status(500).json({ error: 'Error inserting review' });
+        } else {
+            console.log('Review inserted successfully');
+            res.status(201).json({ message: 'Review inserted successfully' });
+        }
     });
+});
     
-    // Start server
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
+app.get('/api/get-username', (req, res) => {
+    const UserName = req.session.user ? req.session.user.username : null;
+    if(UserName){
+        res.json({UserName})
+    }else{
+        res.status(404).json({ error: 'User not found' });
+    }
+});
+
+app.get('/api/search', (req, res) => {
+    const { title } = req.query;
+    const sql = 'SELECT * FROM Movies WHERE Title LIKE ?';
+    db.query(sql, [`%${title}%`], (err, results) => {
+        if (err) {
+            console.error('Error searching movies:', err);
+            res.status(500).json({ error: 'Error searching movies' });
+        } else {
+            res.json(results);
+        }
     });
+});
+app.get('/api/movies', (req, res) => {
+    const sql = 'SELECT * FROM Movies';
+    db.query(sql, (err, results) => {
+        if (err) {
+            console.error('Error fetching movies:', err);
+            res.status(500).json({ error: 'Error fetching movies' });
+        } else {
+            res.json(results);
+        }
+    });
+});
+    
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
     

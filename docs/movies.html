@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Reviews</title>
+    <title>All Movies - CineMate</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,28 +17,16 @@
                 <li class="right-links3"><a href="#" id="logout" style="display: none;" class="red-btn">Logout</a></li>
             </ul>
         </nav>
-        
-        <div id="usernameDisplay" style="display: none;">
-            <span>Welcome, <span id="username"></span></span>
-        </div>
     </header>
-    
     <main>
-        <div class="welcome">
-            <h1>Welcome to CineMate</h1>
-            <p class="sub-heading">Your ultimate movie review platform</p>
+        <div class="movies-container">
+            <h2>All Movies</h2>
+            <div id="moviesList"></div>
         </div>
-    
-        <div class="search">
-            <form id="searchForm">
-                <input type="text" name="title" placeholder="Search for movies...">
-                <button type="button" onclick="searchMovies()">Search</button>
-            </form>
-        </div>
-    
-        <div id="searchResults"></div>
     </main>
-    
     <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', fetchAllMovies);
+    </script>
 </body>
 </html>

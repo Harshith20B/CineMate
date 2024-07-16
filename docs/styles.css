@@ -40,13 +40,15 @@ nav ul li.home {
 }
 
 nav ul li.right-links1 {
-    margin-left: 870px; /* Add margin to the left for all items except the first one */
+    margin-left: 800px; /* Add margin to the left for all items except the first one */
 }
+
 nav ul li.right-links2 {
     margin-left: 20px; /* Add margin to the left for all items except the first one */
 }
+
 nav ul li.right-links3 {
-    margin-left: 100px; /* Add margin to the left for all items except the first one */
+    margin-left: 80px; /* Add margin to the left for all items except the first one */
 }
 
 nav ul li a {
@@ -80,7 +82,7 @@ main {
 }
 
 .search input[type="text"] {
-    width: 70%;
+    width: 78%;
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -106,14 +108,24 @@ main {
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.8); /* Dark background for movie details */
     color: #fff; /* White text for better contrast */
-    display: flex;
-    justify-content: space-between;
 }
 
-.left-container, .right-container {
-    width: 48%;
+.movie-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
+.movie-description {
+    margin-bottom: 10px;
+}
+
+.movie-details {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+/* User reviews section */
 .user-reviews {
     margin-top: 20px;
 }
@@ -143,8 +155,6 @@ main {
     text-decoration: none;
     border-radius: 7px;
 }
-
-/* styles.css */
 
 /* Submit Review button */
 .reviewForm button {
@@ -222,4 +232,41 @@ main {
 .login-container form button:hover,
 .signup-container form button:hover {
     background-color: #45a049; /* Darker green on hover */
+}
+
+.movies-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.movies-container h2 {
+    text-align: center;
+    color: #fff;
+}
+
+.movie {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+
+.movie-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.movie-description {
+    margin-bottom: 10px;
+}
+
+.movie-details {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 5px;
 }

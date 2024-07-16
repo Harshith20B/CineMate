@@ -1,36 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - CineMate</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li class="home"><a href="index.html" id="homeLink">CineMate</a></li>
-                <li class="right-links1"><a href="login.html" class="green-btn" id="login">Login</a></li>
-                <li class="right-links2"><a href="signup.html" class="green-btn" id="signup">Signup</a></li>
-                <li class="right-links3"><a href="#" id="logout" style="display: none;" class="red-btn">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="login-container">
-            <h2>Login</h2>
-            <form id="loginForm">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <br>
-                <button type="button" onclick="login()">Login</button>
-            </form>
-        </div>
-    </main>
-    <script src="main.js"></script>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - CineMate</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li class="home"><a href="index.html" id="homeLink">CineMate</a></li>
+                    <li class="right-links"><a href="movies.html" id="moviesLink">Movies</a></li>
+                    <li class="right-links1"><a href="login.html" class="green-btn" id="login">Login</a></li>
+                    <li class="right-links2"><a href="signup.html" class="green-btn" id="signup">Signup</a></li>
+                    <li class="right-links3"><a href="#" id="logout" style="display: none;" class="red-btn">Logout</a></li>
+                </ul>
+            </nav>
+            
+        </header>
+        <main>
+            <div class="login-container">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <br>
+                    <button type="button" onclick="login()">Login</button>
+                </form>
+            </div>
+        </main>
+        <script src="main.js"></script>
+    </body>
+    </html>

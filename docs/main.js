@@ -42,7 +42,6 @@ function checkLoginStatus() {
             document.getElementById('signup').style.display = 'none';
             document.getElementById('logout').style.display = 'inline';
             document.getElementById('usernameDisplay').style.display = 'inline';
-            // Update username display with data from server
             fetch('/api/get-username', {
                 method: 'GET'
             })
@@ -222,6 +221,40 @@ function submitReview(button) {
     })
     .catch(error => {
         console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    });
+}
+
+function fetchAllMovies() {
+    fetch('/api/movies', {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+        const moviesList = document.getElementById('moviesList');
+        moviesList.innerHTML = '';
+
+        if (data.length > 0) {
+            data.forEach(movie => {
+                const movieDiv = document.createElement('div');
+                movieDiv.className = 'movie';
+
+                movieDiv.innerHTML = `
+                    <h3 class="movie-title">${movie.Title}</h3>
+                    <p class="movie-description">${movie.Description}</p>
+                    <p class="movie-details"><strong>Rating:</strong> ${movie.Movie_Rating}</p>
+                    <p class="movie-details"><strong>Release Date:</strong> ${movie.Release_Date}</p>
+                    <p class="movie-details"><strong>OTT Platform:</strong> ${movie.OTT_Platform}</p>
+                `;
+
+                moviesList.appendChild(movieDiv);
+            });
+        } else {
+            moviesList.innerHTML = '<p>No movies found.</p>';
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching movies:', error);
         alert('An error occurred. Please try again.');
     });
 }
