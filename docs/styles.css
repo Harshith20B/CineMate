@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('images/background.png'); /* Adjust path to your background image */
-    background-size: cover;
-    background-position: center;
+    background-image: url('images/background4.jpg'); /* Adjust path to your background image */
+    background-size:auto;
+    background-position: contain;
     color: #fff; /* White text for better contrast against the background */
     margin: 0;
     padding: 0;
@@ -41,6 +41,7 @@ nav ul li.home {
 
 nav ul li.right-links1 {
     margin-left: 800px; /* Add margin to the left for all items except the first one */
+    
 }
 
 nav ul li.right-links2 {
@@ -71,12 +72,14 @@ main {
     text-align: center;
     margin-bottom: 30px;
     color: #fff;
+    font-size:x-large;
+    font-family:cursive;
 }
 
 .search {
     max-width: 600px;
     margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent black background */
+   /* background-color: rgba(0, 0, 0, 0.8); Darker semi-transparent black background*/
     padding: 20px;
     border-radius: 10px;
 }
@@ -96,7 +99,7 @@ main {
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #31291b;
     color: #fff;
     cursor: pointer;
 }
@@ -231,7 +234,7 @@ main {
 
 .login-container form button:hover,
 .signup-container form button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #936e44; /* Darker green on hover */
 }
 
 .movies-container {
