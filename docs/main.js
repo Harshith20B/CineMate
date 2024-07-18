@@ -188,7 +188,6 @@ function displaySearchResults(results) {
                     console.error('Error fetching reviews:', error);
                     reviewsDiv.innerHTML = '<p>Error fetching reviews</p>';
                 });
-
             movieDiv.appendChild(detailsDiv);
             movieDiv.appendChild(reviewsDiv);
             searchResults.appendChild(movieDiv);
@@ -197,7 +196,6 @@ function displaySearchResults(results) {
         searchResults.innerHTML = '<p>No movies found.</p>';
     }
 }
-
 
 function submitReview(button) {
     const form = button.closest('.reviewForm');

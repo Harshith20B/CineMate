@@ -15,7 +15,7 @@ app.use(session({
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Set secure: true in production with HTTPS
+    cookie: { secure: false }
 }));
 
 const db = mysql.createConnection({
@@ -120,14 +120,14 @@ app.post('/api/reviews', (req, res) => {
     });
 });
     
-app.get('/api/get-username', (req, res) => {
-    const UserName = req.session.user ? req.session.user.username : null;
-    if(UserName){
-        res.json({UserName})
-    }else{
-        res.status(404).json({ error: 'User not found' });
-    }
-});
+// app.get('/api/get-username', (req, res) => {
+//     const UserName = req.session.user ? req.session.user.username : null;
+//     if(UserName){
+//         res.json({UserName})
+//     }else{
+//         res.status(404).json({ error: 'User not found' });
+//     }
+// });
 
 app.get('/api/search', (req, res) => {
     const { title } = req.query;
