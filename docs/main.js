@@ -256,3 +256,36 @@ function fetchAllMovies() {
         alert('An error occurred. Please try again.');
     });
 }
+function fetchAllTVShows() {
+    fetch('/api/tvshows', {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+        const tvShowsList = document.getElementById('tvShowsList'); // Updated ID
+        tvShowsList.innerHTML = '';
+
+        if (data.length > 0) {
+            data.forEach(show => {
+                const showDiv = document.createElement('div');
+                showDiv.className = 'show';
+
+                showDiv.innerHTML = `
+                    <h3 class="show-title">${show.Title}</h3>
+                    <p class="show-description">${show.Description}</p>
+                    <p class="show-details"><strong>Rating:</strong> ${show.TV_Rating}</p>
+                    <p class="show-details"><strong>Airing From:</strong> ${show.Airing_From}</p>
+                    <p class="show-details"><strong>OTT Platform:</strong> ${show.OTT_Platform}</p>
+                `;
+
+                tvShowsList.appendChild(showDiv);
+            });
+        } else {
+            tvShowsList.innerHTML = '<p>No TV shows found.</p>';
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching TV shows:', error);
+        alert('An error occurred. Please try again.');
+    });
+}

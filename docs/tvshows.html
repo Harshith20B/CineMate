@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Reviews</title>
+    <title>All TV Shows - CineMate</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,34 +12,22 @@
             <ul>
                 <li class="home"><a href="index.html" id="homeLink">CineMate</a></li>
                 <li class="right-links"><a href="movies.html" id="moviesLink">Movies</a></li>
-                <li class="right-links"><a href="tvshows.html" id="moviesLink">TV Shows</a></li>
+                <li class="right-links"><a href="tvshows.html" id="tvShowsLink">TV Shows</a></li>
                 <li class="right-links1"><a href="login.html" class="green-btn" id="login">Login</a></li>
                 <li class="right-links2"><a href="signup.html" class="green-btn" id="signup">Signup</a></li>
                 <li class="right-links3"><a href="#" id="logout" style="display: none;" class="red-btn">Logout</a></li>
             </ul>
         </nav>
-        
-        <!-- <div id="usernameDisplay" style="display: none;">
-            <span>Welcome, <span id="username"></span></span>
-        </div> -->
     </header>
-    
     <main>
-        <div class="welcome">
-            <h1>CineMate</h1>
-            <p class="sub-heading">Your ultimate movie review platform</p>
+        <div class="tvshows-container">
+            <h2>All TV Shows</h2>
+            <div id="tvShowsList"></div>
         </div>
-    
-        <div class="search">
-            <form id="searchForm">
-                <input type="text" name="title" placeholder="Search for movies...">
-                <button type="button" onclick="searchMovies()">Search</button>
-            </form>
-        </div>
-    
-        <div id="searchResults"></div>
     </main>
-    
     <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', fetchAllTVShows);
+    </script>
 </body>
 </html>

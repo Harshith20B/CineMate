@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-image: url('images/background4.jpg'); /* Adjust path to your background image */
-    background-size:auto;
+    background-size: auto;
     background-position: contain;
     color: #fff; /* White text for better contrast against the background */
     margin: 0;
@@ -40,8 +40,7 @@ nav ul li.home {
 }
 
 nav ul li.right-links1 {
-    margin-left: 800px; /* Add margin to the left for all items except the first one */
-    
+    margin-left: 700px; /* Add margin to the left for all items except the first one */
 }
 
 nav ul li.right-links2 {
@@ -72,14 +71,14 @@ main {
     text-align: center;
     margin-bottom: 30px;
     color: #fff;
-    font-size:x-large;
-    font-family:cursive;
+    font-size: x-large;
+    font-family: cursive;
 }
 
 .search {
     max-width: 600px;
     margin: 0 auto;
-   /* background-color: rgba(0, 0, 0, 0.8); Darker semi-transparent black background*/
+    /* background-color: rgba(0, 0, 0, 0.8); Darker semi-transparent black background */
     padding: 20px;
     border-radius: 10px;
 }
@@ -104,25 +103,25 @@ main {
     cursor: pointer;
 }
 
-.movie {
+.movie, .tvshow {
     border: 1px solid #ddd;
     padding: 15px;
     margin: 15px 0;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark background for movie details */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for movie and tv show details */
     color: #fff; /* White text for better contrast */
 }
 
-.movie-title {
+.movie-title, .tvshow-title {
     font-size: 1.5em;
     margin-bottom: 10px;
 }
 
-.movie-description {
+.movie-description, .tvshow-description {
     margin-bottom: 10px;
 }
 
-.movie-details {
+.movie-details, .tvshow-details {
     font-size: 0.9em;
     color: #aaa;
     margin-bottom: 5px;
@@ -237,7 +236,8 @@ main {
     background-color: #936e44; /* Darker green on hover */
 }
 
-.movies-container {
+.movies-container,
+.tvshows-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -245,12 +245,14 @@ main {
     border-radius: 10px;
 }
 
-.movies-container h2 {
+.movies-container h2,
+.tvshows-container h2 {
     text-align: center;
     color: #fff;
 }
 
-.movie {
+.movie,
+.tvshow {
     border: 1px solid #ddd;
     padding: 15px;
     margin: 15px 0;
@@ -259,17 +261,46 @@ main {
     color: #fff;
 }
 
-.movie-title {
+.movie-title,
+.tvshow-title {
     font-size: 1.5em;
     margin-bottom: 10px;
 }
 
-.movie-description {
+.movie-description,
+.tvshow-description {
     margin-bottom: 10px;
 }
 
-.movie-details {
+.movie-details,
+.tvshow-details {
     font-size: 0.9em;
     color: #aaa;
     margin-bottom: 5px;
 }
+
+/* Additional styles for TV Shows */
+.tvshow {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for TV show details */
+    color: #fff; /* White text for better contrast */
+}
+
+.tvshow-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.tvshow-description {
+    margin-bottom: 10px;
+}
+
+.tvshow-details {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+

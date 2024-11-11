@@ -17,11 +17,11 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false }
 }));
-
+require('dotenv').config();
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'Harshith20',
-    password: 'Harsha@20',
+    user: 'DB_USERNAME',
+    password: 'DB_PASSWORD',
     database: 'movie_reviews'
 });
 
@@ -67,7 +67,6 @@ app.post('/signup', (req, res) => {
     });
 });
     
-    // Logout endpoint
 app.post('/logout', (req, res) => {
     req.session.destroy((err) => {
         if (err) {
@@ -120,14 +119,14 @@ app.post('/api/reviews', (req, res) => {
     });
 });
     
-// app.get('/api/get-username', (req, res) => {
-//     const UserName = req.session.user ? req.session.user.username : null;
-//     if(UserName){
-//         res.json({UserName})
-//     }else{
-//         res.status(404).json({ error: 'User not found' });
-//     }
-// });
+app.get('/api/get-username', (req, res) => {
+    const UserName = req.session.user ? req.session.user.username : null;
+    if(UserName){
+        res.json({UserName})
+    }else{
+        res.status(404).json({ error: 'User not found' });
+    }
+});
 
 app.get('/api/search', (req, res) => {
     const { title } = req.query;
@@ -152,7 +151,17 @@ app.get('/api/movies', (req, res) => {
         }
     });
 });
-    
+app.get('/api/tvshows', (req, res) => {
+    const sql = 'SELECT * FROM TV_Shows';
+    db.query(sql, (err, results) => {
+        if (err) {
+            console.error('Error fetching tv shows:', err);
+            res.status(500).json({ error: 'Error fetching tv shows' });
+        } else {
+            res.json(results);
+        }
+    });
+});  
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
